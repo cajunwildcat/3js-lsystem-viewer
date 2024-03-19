@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="dist/bundle.js" type="module"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <title>3D LSystem Viewer</title>
+
+    <style>
+        body {
+            background-color: #1B1B1B;
+            margin: 0;
+        }
+
+        #renderer {
+            width: fit-content;
+        }
+
+        .is-flex {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .label {
+            color: rgb(203, 203, 203);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="columns is-gapless">
+        <div id="renderer" class="column is-four-fifths"></div>
+        <div id="controls" class="column is-flex is-spaced">
+            <div class="field">
+                <label class="label">L-System:</label>
+                <div class="control">
+                    <div class="select">
+                        <select id="lsystem-select"></select>
+                    </div>
+                </div>
+            </div>
+
+            <table id="alphabet-table" class="table is-fullwidth is-rounded">
+                <thead>
+                    <tr>
+                        <th>Symbol</th>
+                        <th>Rule</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+            <button id="add-row-btn" class="button mb-5">Add Row</button>
+
+            <div class="field">
+                <label class="label">Axiom:</label>
+                <div class="control">
+                    <input type="text" id="axiom-input" class="input is-small is-rounded" placeholder="Axiom">
+                </div>
+            </div>
+
+            <div class="field">
+                <label class="label">Angle:</label>
+                <div class="control">
+                    <input type="number" id="angle-input" class="input is-small is-rounded" placeholder="Angle">
+                </div>
+            </div>
+
+            <div class="field">
+                <label class="label">Iterations:</label>
+                <div class="control">
+                    <input type="number" id="iterations-input" class="input is-small is-rounded"
+                        placeholder="Iterations">
+                </div>
+            </div>
+
+            <div class="field">
+                <label class="label">Segment Length:</label>
+                <div class="control">
+                    <input type="number" id="segment-length-input" class="input is-small is-rounded"
+                        placeholder="Segment Length">
+                </div>
+            </div>
+
+            <div class="field">
+                <label class="label">Start Radius:</label>
+                <div class="control">
+                    <input type="number" id="start-radius-input" class="input is-small is-rounded"
+                        placeholder="Start Radius">
+                </div>
+            </div>
+
+            <div class="field">
+                <div class="control">
+                    <button id="render-btn" class="button mb-5">Render</button>
+                </div>
+            </div>
+
+            <div class="field">
+                <div class="control is-flex">
+                    <button id="save-system-btn" class="button">Save System</button>
+                    <input id="import-file" hidden type="file">
+                    <button id="import-system-btn" class="button">Import System</button>
+                    <button id="download-btn" class="button">Download Scene</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
